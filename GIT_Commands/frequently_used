@@ -1,0 +1,96 @@
+git init
+git add .
+git commit -m "init commit"
+git remote add origin <remote repo url>
+git push --set-upstream origin master
+
+# setup local branch with remote  
+git checkout -b cool-feature
+git add .
+git commit -m "branch init commit"
+git push --set-upstream origin cool-feature
+
+# change remote for your local repo, useful when synching your fork
+git remote set-url origin <repo url>
+
+# set a new remote and use it to push/fetch 
+git remote add <remote-name> <remote-url>
+git pull <remote-name>
+# for the first push
+git push --set-upstream <remote-name> <branch-name> 
+
+# git reset  
+# undo 2 commits and unstage files
+git reset HEAD~2 # git reset --mixed HEAD~2
+
+# undo 2 commits and leave changes staged
+git reset --soft HEAD~2
+
+# undo 2 commits and delete all changes
+git reset --hard HEAD~2
+
+# git revert
+#Undo last 2 commits with new commit (without altering history)
+git revert HEAD~2
+
+# git checkout
+# move around to a branch/commit
+git checkout <branch> or git checkout <commit-SHA>
+
+# remove staged file from index
+git rm <file-name>
+
+# revert merge
+git log #check the commit hash and parent id
+# revert working tree to commit-hash on parent branch 1
+git revert <commit-hash> -m 1
+
+# move commits to another existing branch
+git checkout existingbranch
+git merge master
+git checkout master
+git reset --hard HEAD~3 # Go back 3 commits. You *will* lose uncommitted work.
+git checkout existingbranch
+
+# move commits to another new branch
+git branch newbranch      # Create a new branch, saving the desired commits
+git reset --hard HEAD~3   # Move master back by 3 commits or put a commit hash
+git checkout newbranch    # Go to the new branch that still has the desired commits
+
+# alias for pretty log
+git config --global alias.graphlinelog "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+git graphlinelog
+
+# Generating reports with git
+git shortlog -sne --after="28 Feb 2021" --before="01 Apr 2021" # short list of commits sorted by contributors during a given period
+git shortlog --after="28 Feb 2021" --before="01 Apr 2021" --merges # merge commits, replace shortlog by log for commit messages
+git log --format=%B -n 1 <commit-hash> # show commit message
+git log --merges --first-parent master --pretty=format:"%h %C(blue)%<(15,trunc)%aN %C(white)%<(22)%ar%Creset %C(green)%s" # log of merge commits to master, with commit hash & author name 
+
+# Saving changes without committing 
+git stash push -m "stash name" # make a new stash
+git stash list # list all available stashes
+git stash show # show diff between stash and current state
+git stash pop # apply stash and remove from stack
+git stash apply # apply and keep stash in stack
+git diff > path-name.patch # save WIP diff as a patch
+git apply --3way some.patch # apply a patch like a stash
+
+# worktree: Create a parellel directory to work on a separate feature
+git worktree add -b hotfix ~/code/hotfix master
+git worktree list
+git worktree remove hotfix
+
+# Use delta for better git diff outputs
+brew install git-delta
+git config --global core.pager "delta --line-numbers --dark"
+git config --global delta.side-by-side true
+
+# Find which commit added a specific file eg foo.cpp
+git log --follow --diff-filter=A --find-renames=40% foo.cpp
+
+# Squash all commits in a branch to a single commit without git rebase
+git checkout my_branch
+git reset $(git merge-base main $(git rev-parse --abbrev-ref HEAD))
+git add .
+git commit -m "one commit to rule them all

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.10.12 on linux)" generated="20240704 15:46:35.745" rpa="true" schemaversion="4">
+<suite id="s1" name="Tasks" source="/home/buzzadmin/Desktop/HTTP/tasks.robot">
+<test id="s1-t1" name="POST API" line="19">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240704 15:46:36.262" level="INFO">${headers} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20240704 15:46:36.262" endtime="20240704 15:46:36.264"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${params}</var>
+<arg>username=${USERNAME}</arg>
+<arg>key=${KEY}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240704 15:46:36.266" level="INFO">${params} = {'username': 'adminapi', 'key': 'eshyosdmtoopcfrgxthftnfwthdicxmmioxedozotygbztmzfecjmxznzersteiketxusgydkpcqcljeptabzxthzmuvpyrfvjgdcwlytxpdvcfwmhytzvkzvrqammra'}</msg>
+<status status="PASS" starttime="20240704 15:46:36.265" endtime="20240704 15:46:36.266"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${data}</var>
+<arg>employee_id=100</arg>
+<arg>aadhaar_number=007</arg>
+<arg>name=abc</arg>
+<arg>uan_status=NA</arg>
+<arg>uan_num=000</arg>
+<arg>remarks=NA</arg>
+<arg>entity_status=NA</arg>
+<arg>user_uuid=1111</arg>
+<arg>time=30</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240704 15:46:36.267" level="INFO">${data} = {'employee_id': '100', 'aadhaar_number': '007', 'name': 'abc', 'uan_status': 'NA', 'uan_num': '000', 'remarks': 'NA', 'entity_status': 'NA', 'user_uuid': '1111', 'time': '30'}</msg>
+<status status="PASS" starttime="20240704 15:46:36.266" endtime="20240704 15:46:36.267"/>
+</kw>
+<kw name="Create Session" library="RPA.HTTP">
+<arg>apisession</arg>
+<arg>${API_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20240704 15:46:36.268" level="INFO">Creating Session using : alias=apisession, url=https://app.hoppr.in, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20240704 15:46:36.268" endtime="20240704 15:46:36.269"/>
+</kw>
+<kw name="Post Request" library="RPA.HTTP">
+<var>${response}</var>
+<arg>apisession</arg>
+<arg>${ENDPOINT}</arg>
+<arg>params=${params}</arg>
+<arg>data=${data}</arg>
+<arg>headers=${headers}</arg>
+<doc>*DEPRECATED* Please use `POST On Session` instead.</doc>
+<msg timestamp="20240704 15:46:36.270" level="WARN">Keyword 'RPA.HTTP.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+<msg timestamp="20240704 15:46:37.420" level="INFO">/home/buzzadmin/.robocorp/holotree/bdc8e5a_b1f3c24_1c0bc041/lib/python3.10/site-packages/urllib3/connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'app.hoppr.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20240704 15:46:37.423" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20240704 15:46:36.270" endtime="20240704 15:46:37.423"/>
+</kw>
+<status status="PASS" starttime="20240704 15:46:36.261" endtime="20240704 15:46:37.426"/>
+</test>
+<status status="PASS" starttime="20240704 15:46:35.750" endtime="20240704 15:46:37.432"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tasks">Tasks</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20240704 15:46:36.270" level="WARN">Keyword 'RPA.HTTP.Post Request' is deprecated. Please use `POST On Session` instead.</msg>
+</errors>
+</robot>

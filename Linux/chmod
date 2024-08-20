@@ -1,0 +1,33 @@
+
+******************** Logic ***************
+
+Permission	        Description                 	Octal       	Decimal
+---	                No Permission	                000	0           (0+0+0)
+--x	                Execute	                        001	1           (0+0+1)
+-w-	                Write	                        010	2           (0+2+0)
+-wx	                Execute and Write	            011	3           (0+2+1)
+r--	                Read	                        100	4           (4+0+0)
+r-x	                Read and Execute	            101	5           (4+0+1)
+rw-             	Read and Write	                110	6           (4+2+0)
+rwx	                Read, Write and Execute	        111	7           (4+2+1)
+
+
+
+u	User
+g	Group
+o	Others
+a	All, same as ugo
+d	Directory
+-	Regular file
+l	Symbolic Link
++	Add
+-	Remove
+=	Set
+
+
+################   SSH Permissions   ##############
+$ chmod 700 ~/.ssh
+$ chmod 600 ~/.ssh/authorized_keys
+$ chmod 600 ~/.ssh/id_rsa
+$ chmod 600 ~/.ssh/id_rsa.pub
+$ chmod 400 /path/to/access_key.pem

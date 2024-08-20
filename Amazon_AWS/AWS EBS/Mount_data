@@ -1,0 +1,10 @@
+Here are the commands you'll need to mount your EBS volume to an EC2 instance:
+
+   1. Run the command to show the volumes: lsblk
+   2. List the disk partition on the system: sudo fdisk -l
+   3. Check the file system: sudo file -s /dev/nvme1n1
+   4. If the output is data, then create the file system: sudo mkfs -t xfs /dev/nvme1n1
+   5. Recheck the file system: sudo file -s /dev/nvme1n1
+   6. Create a mount point directory for the volume: sudo mkdir /mydata
+   7. Mount the volume: sudo mount /dev/nvme1n1 /mydata
+   8. Run df -h to view the data: df -h

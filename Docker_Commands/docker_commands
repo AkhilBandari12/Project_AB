@@ -1,0 +1,203 @@
+docker ps	                                 List running containers
+docker ps -a	                             List all containers
+docker ps -s	                             List running containers(with CPU / memory)
+docker images	                             List all images
+docker exec -it <container> bash             Connecting to container
+docker logs <container>	                    Shows container's console log
+docker stop <container>	                    Stop a container
+docker restart <container>              	Restart a container
+docker rm <container>	                    Remove a container
+docker port <container>	                    Shows container's port mapping
+docker top <container>	                    List processes
+docker kill <container>                 	Kill a container
+
+################ docker_run.sh ###########
+#!/bin/bash
+echo "----- Start -------\n"
+docker-compose down && docker-compose build --no-cache && docker-compose up -d 
+sleep 0.5
+docker system prune -a -f
+echo "Sleep 5 sec"
+sleep 5
+docker exec compliance-bot  python manage.py makemigrations 
+echo "Sleep 2 sec"
+sleep 2
+docker exec compliance-bot  python manage.py migrate
+echo "-------END------"
+
+
+
+sudo ./docker_run.sh
+sudo docker restart compliance-bot
+sudo docker logs compliance-bot 
+
+sudo docker exec -it compliance-bot bash
+sudo docker exec -it compliance_bot-rabbitmq-epf-worker-1 bash
+sudo docker exec -it compliance_bot-rabbitmq-esic-worker-1 bash
+
+sudo docker ps
+sudo docker ps -a
+sudo docker-compose down && sudo docker-compose up -d
+sudo docker exec compliance-bot  python manage.py makemigrations
+sudo docker exec compliance-bot  python manage.py migrate
+
+sudo docker restart compliance_bot-rabbitmq-epf-worker-1
+sudo docker logs -f compliance_bot-rabbitmq-epf-worker-1
+
+sudo docker restart compliance_bot-rabbitmq-esic-worker-1
+sudo docker logs -f compliance_bot-rabbitmq-esic-worker-1 
+
+sudo docker ps -a
+sudo docker stop 4c2fc215c5ff
+sudo docker rm 4c2fc215c5ff
+sudo docker rm 54e09cd56d1e
+sudo docker ps -a
+sudo docker rm e64b67381e8c
+sudo docker-compose build --no-cache
+cat docker_run.sh 
+sudo docker-compose up
+mv .venv ../
+sudo docker-compose build --no-cache
+df-h
+df -h
+sudo docker compose down && sudo docker compose up -d
+
+
+############  selenium grid #############
+cd /etc/systemd/system/
+systemctl status selenium-grid.service
+ls
+sudo systemctl start selenium-grid.service
+systemctl status selenium-grid.service
+sudo docker logs selenium-grid
+sudo rm 9b73da0d03dd27ca1f670f60e160ca>
+sudo docker rm 9b73da0d03dd
+sudo doxker ps -a
+
+
+
+#############   postgres docker connection ##########
+sudo docker exec -it postgres-db psql -U botcom
+\dt
+SELECT * FROM epf_epfupload;
+\q
+SELECT * FROM uan_userdata;
+\q
+SELECT * FROM uan_individualuserstatus;
+\q
+exit
+
+
+ sudo docker inspect e33a174a30f9
+ sudo docker inspect selenium/standalone-firefox:4.16.1-20231219
+ sudo docker images
+ docker create --name temp-container selenium/standalone-firefox:4.16.1-20231219
+ docker cp temp-container:/opt/bin/entry_point.sh ./entry_point.sh
+ docker rm temp-container
+sudo docker image inspect selenium/standalone-firefox:4.16.1-20231219 --format='{{.Size}}'
+docker save -o selenium.tar selenium/standalone-firefox:4.16.1-20231219
+sudo docker inspect --format='{{.Config.Image}}:{{index .Config.Labels "com.docker.compose.version"}}' 93f516679157
+sudo docker image save selenium/standalone-firefox:4.16.1-20231219 > my-image.tar
+
+
+ 
+
+
+
+ #########################################################################################################################################
+
+ # Docker
+
+https://docs.docker.com/engine/reference/commandline/docker/
+
+
+## Images
+
+```bash
+docker pull <image>         # Download a prebuilt image from Docker
+```
+
+```bash
+docker search <image>       # Search for a prebuilt image from Docker
+```
+
+```bash
+docker image ls             # List images
+```
+
+```bash
+docker rmi <image>          # Remove Docker image
+```
+
+
+## Containers
+
+```bash
+docker run -t -i centos /bin/bash   # Starts a container and runs bash in the shell
+```
+
+```bash
+docker --version            # Get the installed version of Docker
+```
+
+```bash
+docker run hello-world      # Test docker is working correctly
+```
+
+```bash
+docker ps                   #  List running containers
+```
+
+```bash
+docker ps -a                # List all containers (running and stoppped)
+```
+
+```bash
+docker rm $(docker ps -a -q)    # Remove all containers
+```
+
+```bash
+docker kill <container ID>  # Kill a running container
+```
+
+```bash
+docker kill $(docker ps -q)     # Kill all containers
+```
+
+## Shell access
+
+```bash
+docker container exec -it <container> /bin/bash    # Starts a bash session inside the container
+```
+
+```bash
+docker container run -it centos bash         # Create a Centos container and load bash in the terminal
+```
+
+```bash
+docker container start -ai <container>      # Start a stopped container and load the shell in the terminal
+```
+
+## Process Monitoring
+
+```bash
+docker container top <container>         # Display the running processes inside the container
+```
+
+```bash
+docker container inspect <container>    # Displays details information on the container
+```
+
+```bash
+docker container stats                  # Displays a live stream of container resource usage stats
+```
+
+# Networks
+
+```bash
+docker network ls                       # List all networks
+```
+
+```bash
+docker network create <network>         # Creates a docker network
+```

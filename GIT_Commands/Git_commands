@@ -1,0 +1,120 @@
+############## New REpository #################
+Set the name that will be attached to your commits and tags             $ git config --global user.name "name"
+Set an email address that will be attached to your commits and tags     $ git config --global user.email "email"
+
+Create a new local repository                        $ git init [project name]
+Clone a repository                                   $ git clone git_url
+Clone a repository into a specified directory        $ git clone git_url my_directory
+
+
+################ Changes ####################
+
+Show modified files in working directory, staged for your next commit    $ git status
+Stages the file, ready for commit                                        $ git add [file]
+Stage all changed files, ready for commit                                $ git add .
+Commit all staged files to versioned history                             $ git commit -m "commit message"
+Commit all your tracked files to versioned history                       $ git commit -am "commit message"
+Discard changes in working directory which is not staged                 $ git restore [file]
+Unstage a stagged file or file which is staged                           $ git restore --staged [file]
+Unstages file, keeping the file changes                                  $ git reset [file]
+Revert everything to the last commit                                     $ git reset --hard
+Diff of what is changed but not staged                                   $ git diff
+Diff of what is staged but not yet commited                              $ git diff --staged
+Apply any commits of current branch ahead of specified one               $ git rebase [branch]
+
+
+##############   Branches   ###############
+
+List all local branches                                 $ git branch
+List all branches, local and remote                     $ git branch -av
+Switch to my_branch, and update working directory       $ git checkout my_branch
+Create a new branch called new_branch                   $ git checkout -b new_branch
+Delete the branch called my_branch                      $ git branch -d my_branch
+Merge branchA into branchB                              $ git checkout branchB  $ git merge branchA
+Tag the current commit                                  $ git tag my_tag
+
+
+######################################
+
+Renamed to new_name                                     $ git branch -m <new_name>
+Push and reset                                          $ git push origin -u <new_name>
+Delete remote branch                                    $ git push origin --delete <old>
+Rewrite last commit message                             $ git commit --amend -m "new message"
+Show changes over time for specific file                $ git log -p <file_name>
+List all branches and their upstreams                   $ git branch -vv 
+Quickly switch to the previous branch                   $ git checkout -
+Get only remote branches                                $ git branch -r
+Checkout a single file from another branch              $ git checkout <branch> -- <file>
+
+
+
+############## How to give access to your private repos ###############
+
+Install GitHub CLI using Snap:
+sudo snap install gh
+
+Verify the Installation:
+gh --version
+
+Log in to GitHub:
+gh auth login
+
+Add the collaborator:
+gh repo add-collaborator <OWNER>/<REPO> <GITHUB_USERNAME>
+
+
+
+###################  add_collabartes.sh file (script for multiple repos)############
+
+#!/bin/bash
+
+HR_USERNAME="hr-github-username"  # Replace with HR's GitHub username
+GITHUB_USERNAME="your-github-username"  # Replace with your GitHub username
+
+# Get a list of all private repositories
+repos=$(gh repo list --private --json name --jq '.[].name')
+
+for repo in $repos; do
+    echo "Adding collaborator to $repo"
+    response=$(gh api -X PUT "repos/$GITHUB_USERNAME/$repo/collaborators/$HR_USERNAME" -f permission=push)
+
+    if echo "$response" | grep -q '"id"'; then
+        echo "Successfully added $HR_USERNAME to $repo"
+    else
+        echo "Failed to add $HR_USERNAME to $repo"
+        echo "Response: $response"
+    fi
+done
+
+
+Make the Shell Script Executable:
+chmod +x add_collaborators.sh
+
+
+Run the Shell Script:
+./add_collaborators.sh
+
+
+
+
+######################## commands used in Terminal ###################
+
+git init
+git remote add origin https://github.com/AkhilBandari12/CenternodeGoesOffline.git
+git add .
+git commit -m "Initial Commit"
+git push origin master
+
+gh auth login
+sudo snap install gh
+gh --version
+gh auth login
+  
+ls
+chmod 777 add_collaborators.sh
+ls -l
+
+
+
+##### To see the hidden files #######
+find . -type f -name ".*"

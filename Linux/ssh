@@ -1,0 +1,42 @@
+
+############ Connecting   #########
+Connect to a server (default port 22)        $ ssh root@192.168.1.5
+Connect on a specific port                   $ ssh root@192.168.1.5 -p 6222
+Connect via pem file (0400 permissions)      $ ssh -i /path/file.pem root@192.168.1.5
+
+
+############### Executing #############
+Executes remote command                      $ ssh root@192.168.1.5 'ls -l'
+Invoke a local script                        $ ssh root@192.168.1.5 bash < script.sh
+Compresses and downloads from a server       $ ssh root@192.168.1.5 "tar cvzf - ~/source" > output.tgz
+
+
+
+############## Copy ################
+Copies from remote to local                  $ scp user@server:/dir/file.ext dest/
+Copies between two servers                   $ scp user@server:/file user@server:/dir
+Copies from local to remote                  $ scp dest/file.ext user@server:/dir
+Copies a whole folder                        $ scp -r user@server:/dir dest/
+Copies all files from a folder               $ scp user@server:/dir/* dest/
+
+#############  Copy Options ##############
+scp -r	Recursively copy entire directories
+scp -C	Compresses data
+scp -v	Prints verbose info
+scp -P 8080	Uses a specific Port
+
+
+#############  Config Sample ###############
+Host server1 
+    HostName 192.168.1.5
+    User root
+    Port 22
+    IdentityFile ~/.ssh/server1.key
+
+#############  Config Locations ###########
+/etc/ssh/ssh_config	System-wide config
+~/.ssh/config	User-specific config
+~/.ssh/id_{type}	Private key
+~/.ssh/id_{type}.pub	Public key
+~/.ssh/known_hosts	Logged in host
+~/.ssh/authorized_keys	Authorized login key

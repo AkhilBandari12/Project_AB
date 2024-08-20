@@ -1,0 +1,128 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    container_name: postgres-db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=botcom
+      - POSTGRES_USER=botcom
+      - POSTGRES_PASSWORD=botcom
+      - TZ=Asia/Kolkata
+  app:
+    build: .
+    image: complaince-bot-image
+    container_name: compliance-bot
+    command: daphne compliance_bot.asgi:application --bind 0.0.0.0
+    volumes:
+      - .:/app/
+      - staticfiles:/app/static/
+      - ./media:/app/media/
+      # - /usr/local/lib/python3.10/dist-packages:/app/usr/local/lib/python3.10/site-packages/
+      - /home/ubuntu/compliance_bot/compliance_scripts/esic_dev/env/lib/python3.10/site-packages/:/usr/local/lib/python3.10/site-packages/
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro       
+
+    expose:
+      - 8000
+    environment:
+      - BOT_DB_NAME=botcom
+      - BOT_DB_USER=botcom
+      - BOT_DB_PASS=botcom
+      - BOT_DB_HOST=db
+      - CSRF_TRUSTED_ORIGINS=http://43.205.106.197
+      # - CSRF_TRUSTED_ORIGINS=http://rpabot.buzzworks.com
+      - RABBITMQ_HOST=rabbitmq-server
+    depends_on:
+      - rabbitmq-server
+      - db
+
+
+  rabbitmq-server:
+    image: rabbitmq:3-management
+    container_name: rabbitmq-server
+    ports:
+      - 15672:15672
+      - 5672:5672
+    depends_on:
+      - db
+    environment:
+      - TZ=Asia/Kolkata
+    healthcheck:
+        test:  ["CMD", "rabbitmqctl", "status"] #["CMD", "curl", "-f", "curl -s -o /dev/null -w \"%{http_code}\" http://rabbitmq-server:15672/api/healthchecks/node | grep -q 200"]
+        interval: 30s
+        timeout: 10s
+        retries: 3
+    # restart: always
+
+
+
+  # rabbitmq-epf-worker:
+  #   image: complaince-bot-image
+  #   # container_name: rabbitmq-worker
+  #   environment:
+  #     - BOT_DB_NAME=botcom
+  #     - BOT_DB_USER=botcom
+  #     - BOT_DB_PASS=botcom
+  #     - BOT_DB_HOST=db
+  #     - RABBITMQ_HOST=rabbitmq-server
+  #   # command: python manage.py run_epf_script
+  #   volumes:
+  #     - .:/app/
+  #     - ./media:/app/media/
+  #     - /home/ubuntu/compliance_bot/compliance_scripts/esic_dev/env/lib/python3.10/site-packages/:/usr/local/lib/python3.10/site-packages/
+  #     - /etc/localtime:/etc/localtime:ro
+  #     - /etc/timezone:/etc/timezone:ro        
+  #   depends_on:
+  #     rabbitmq-server:
+  #       condition: service_healthy
+  #   deploy:
+  #     mode: replicated
+  #     replicas: 1
+  #   # restart: always
+
+
+  # rabbitmq-esic-worker:
+  #   image: complaince-bot-image
+  #   # container_name: rabbitmq-worker
+  #   environment:
+  #     - BOT_DB_NAME=botcom
+  #     - BOT_DB_USER=botcom
+  #     - BOT_DB_PASS=botcom
+  #     - BOT_DB_HOST=db
+  #     - RABBITMQ_HOST=rabbitmq-server
+  #   # command: python manage.py run_esic_script
+  #   volumes:
+  #     - .:/app/
+  #     - ./media:/app/media/
+  #     - /home/ubuntu/compliance_bot/compliance_scripts/esic_dev/env/lib/python3.10/site-packages/:/usr/local/lib/python3.10/site-packages/
+  #     - /etc/localtime:/etc/localtime:ro
+  #     - /etc/timezone:/etc/timezone:ro
+  #   depends_on:
+  #     rabbitmq-server:
+  #       condition: service_healthy
+  #   deploy:
+  #     mode: replicated
+  #     replicas: 1
+  #   # restart: always
+
+
+
+
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    volumes:
+      - ./static:/app/static/
+      - ./media:/app/media/
+    ports:
+      - 80:80
+    depends_on:
+      - app
+      
+
+volumes:
+  postgres_data:
+  staticfiles:
+  # mediafiles:

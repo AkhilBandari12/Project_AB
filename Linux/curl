@@ -1,0 +1,24 @@
+curl -I https://abc.com	                                        curl sends a request
+curl -v -I https://abc.com		                                curl request with details
+curl -X GET https://abc.com		                                use explicit http method for curl
+curl --noproxy 127.0.0.1 https://abc.com		                curl without http proxy
+curl --connect-timeout 10 -I -k https://abc.com	                curl has no timeout by default
+curl --verbose --header "Host: www.mytest.com:8182"	            curl get extra header
+curl -k -v https://www.google.com	                            curl get response with headers 
+
+
+
+########## Basic Oauth  #############
+
+$ curl --user username:password http://example.com/
+$ curl -u username:password http://example.com/
+
+
+########## Write output to a file named remote_file  ##########
+
+$ curl -o file http://url/file
+$ curl --output file http://url/file
+
+
+
+
