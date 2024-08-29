@@ -18,7 +18,7 @@ for i in a_list:
     # print(i)
     temp =""
     for j in i:
-        print(j)
+        print(j) 
         if j.isalpha():
             temp+=j
     output_list.append(temp.lower())
@@ -26,3 +26,7 @@ print(output_list)
 
 for k in set(output_list):
     print(k.capitalize(),output_list.count(k))
+
+
+# s = 'mybacon'
+# print(s[-2:-5:-1])
