@@ -1,0 +1,26 @@
+********* INSERT ************
+INSERT INTO e_portal (aadhar_number, pan_number)
+VALUES ('123456789', 'CTOPA1718E');    
+
+
+
+********UPDATE******************
+UPDATE e_portal 
+SET "Status" = 'Success', 
+    "Remarks" = 'PAN is already linked with AADHAR'
+WHERE "Aadhar_Number" = '854826577634';
+
+
+
+**********DELETE*************
+DELETE FROM e_portal;    -- All Rows
+
+DELETE FROM e_portal
+WHERE Status IS NULL;        -- NULL Values will be deleted
+
+DELETE FROM eportal
+WHERE Aadhar_Number = '854826577634';   -- Particular value record will be deleted
+
+
+
+
