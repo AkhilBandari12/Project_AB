@@ -74,6 +74,23 @@ sudo rm 9b73da0d03dd27ca1f670f60e160ca>
 sudo docker rm 9b73da0d03dd
 sudo doxker ps -a
 
+###########  nginix  ####################
+ docker logs -f nginx 
+exit
+docker ps
+docker exec -it nginx bash
+docker exec -it nginx /bin/bash
+  
+docker exec -it nginx /bin/bash
+docker exec -it nginx bash
+docker cp nginx:/etc/nginx/nginx.conf nginx-docker.conf
+vim nginx-docker.conf 
+docker cp nginx:/etc/nginx/conf.d/nginx.conf nginx-docker.conf
+vim nginx-docker.conf 
+docker cp nginx/nginx.conf nginx:/etc/nginx/conf.d/
+docker restart nginx
+docker cp nginx:/etc/nginx/conf.d/nginx.conf nginx-docker.conf
+vim nginx-docker.conf 
 
 
 #############   postgres docker connection ##########

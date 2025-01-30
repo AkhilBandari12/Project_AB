@@ -1,3 +1,10 @@
+ sudo find /home/ubuntu/compliance_bot/logs/pan_verification/ -mindepth 1 -type d -exec rm -rf {} +
+ sudo find /home/ubuntu/compliance_bot/logs/tempcardcheck/ -mindepth 1 -type d -exec rm -rf {} +
+ sudo find /home/ubuntu/compliance_bot/logs/uancheck/ -mindepth 1 -type d -exec rm -rf {} +
+ sudo find /home/ubuntu/compliance_bot/logs/uan/ -mindepth 1 -type d -exec rm -rf {} +
+
+
+
 # Find
 
 ```bash
