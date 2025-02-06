@@ -23,21 +23,25 @@ Output: "y"
 
 """
 
-s = "abcd"
-t = "abcde"
+# s = "abcd"
+# t = "abcde"
 
-# s = "a"
-# t = "aa"
+s = "a"
+t = "aa"
 
-s_set = set(s)
-t_set = set(t)
+# s_set = set(s)
+# t_set = set(t)
 
-op = S = ''.join(s_set.symmetric_difference(t_set))
-print(op)
+# op = S = ''.join(s_set.symmetric_difference(t_set))
+# print(op)
 
-# s_lis = list(s)
-# t_lis = list(t)
+result = 0
+for char in s + t:
+    result ^= ord(char)
+print(chr(result))
 
-# # set.symmetric_difference_update
+# sum_s = sum(ord(char) for char in s)
+# sum_t = sum(ord(char) for char in t)
+# return chr(sum_t - sum_s)
 
 

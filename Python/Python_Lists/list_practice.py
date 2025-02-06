@@ -18,3 +18,10 @@ required_columns = [
 op = [col for col in full_columns if col in required_columns]
 
 print(op)
+
+['site_name', 'group_name', 'username', 'current_status', 'full_name', 'campaign', 'app_idle_time', 'dialer_idle_time',
+  'predictive_wait_time', 'ring_duration', 'ring_duration_avg', 'hold_time',
+    'predictive_wait_time_avg', 'talk', 'bill_sec', 
+  'call_duration', 'break_time', 
+ 'app_login_time', 'dialer_login_time', 'total_login_time', 'first_login_time', 
+ 'last_logout_time', 'total_calls', 'total_unique_connected_calls', 'date']
