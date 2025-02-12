@@ -54,6 +54,11 @@ for i in S:
         # print(l)
 
 print("".join(l))
+
+# ind =0 
+# le = len(S)
+
+# if 
         
 
 # for k in l:
