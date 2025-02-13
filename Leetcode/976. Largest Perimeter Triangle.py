@@ -21,3 +21,13 @@ As we cannot use any three side lengths to form a triangle of non-zero area, we 
 
 
 """
+nums = [2,1,2]
+
+nums.sort(reverse=True)
+n = len(nums)
+i = 0
+while i < len(nums) - 2:
+    if nums[i] < nums[i+1] + nums[i+2]:
+        print(nums[i] + nums[i+1] + nums[i+2])
+    i += 1
+print(0)
