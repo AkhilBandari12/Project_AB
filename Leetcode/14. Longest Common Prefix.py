@@ -25,5 +25,5 @@ l = len(strs[0])
 for i in range(l):
     temp = ""
     for j in strs:
-        if len(j)>=l:
+        if len(j)>=i:
             temp+=j
