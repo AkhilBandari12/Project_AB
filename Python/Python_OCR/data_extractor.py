@@ -123,12 +123,12 @@ pdf_path = '/home/buzzadmin/Documents/Desktop/Click_On_This/upload/Project-B/Pyt
 print("Starting OCR script...")
 
 if not os.path.exists(pdf_path):
-    print(f"❌ Error: PDF file not found at {pdf_path}")
+    print(f" Error: PDF file not found at {pdf_path}")
     exit()
 
-print("✅ PDF file exists. Proceeding with extraction...")
+print(" PDF file exists. Proceeding with extraction...")
 
-# 🟢 **Step 1: Check if PDF has selectable text (Avoid OCR if possible)**
+# **Step 1: Check if PDF has selectable text (Avoid OCR if possible)**
 extracted_text = ""
 with pdfplumber.open(pdf_path) as pdf:
     extracted_text = "\n".join(
@@ -136,14 +136,14 @@ with pdfplumber.open(pdf_path) as pdf:
     )
 
 if extracted_text.strip():
-    print("🔹 Selectable text found. Extracting text without OCR...")
+    print("Selectable text found. Extracting text without OCR...")
 else:
-    print("🔹 No selectable text found. Performing OCR on scanned PDF...")
+    print("No selectable text found. Performing OCR on scanned PDF...")
 
-    # 🟢 **Step 2: Convert PDF pages to images**
+    # **Step 2: Convert PDF pages to images**
     images = convert_from_path(pdf_path)
 
-    # 🟢 **Step 3: Apply Preprocessing for OCR**
+    # **Step 3: Apply Preprocessing for OCR**
     for i, img in enumerate(images):
         # Convert to grayscale
         img = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2GRAY)
@@ -154,18 +154,18 @@ else:
         # Save the preprocessed image for debugging
         processed_image_path = f"processed_page_{i+1}.png"
         Image.fromarray(img).save(processed_image_path)
-        print(f"🖼️ Saved processed image: {processed_image_path}")
+        print(f"Saved processed image: {processed_image_path}")
 
         # Perform OCR
         extracted_text += pytesseract.image_to_string(img, lang="eng") + "\n"
 
-# 🟢 **Step 4: Save Extracted Text to File**
+# **Step 4: Save Extracted Text to File**
 output_text_file = "extracted_text.txt"
 with open(output_text_file, "w", encoding="utf-8") as f:
     f.write(extracted_text)
 
-print(f"✅ OCR extraction completed! Text saved to '{output_text_file}'.")
+print(f"OCR extraction completed! Text saved to '{output_text_file}'.")
 
-# 🟢 **Step 5: Print Extracted Text (For Debugging)**
-print("\n🔍 Extracted Text Preview:\n")
+# **Step 5: Print Extracted Text (For Debugging)**
+print("\n Extracted Text Preview:\n")
 print(extracted_text[:1000])  # Show only first 1000 characters
