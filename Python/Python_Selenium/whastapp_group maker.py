@@ -25,7 +25,7 @@ def whatsapp_groupmaker(excel_file):
     driver.maximize_window()
 
     # Wait for QR code scan
-    WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, "//canvas")))
+    # WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, "//canvas")))
 
     try:
         # Click on the menu and create a new group

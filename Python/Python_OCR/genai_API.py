@@ -13,22 +13,24 @@ def text_extract(img_path):
     GOOGLE_API_KEY = "AIzaSyC6s22hTuVbbw-1yUEaoAYMWVBKfQDFEEA"
     genai.configure(api_key=GOOGLE_API_KEY)
 
-    # Use a method available in the API
+    # Load the Gemini Pro Vision model
+    model = genai.GenerativeModel("gemini-pro-vision")
+
+    # Open the image
     img = PIL.Image.open(img_path)
     print("Extracting text...")
 
-    # Assuming 'generate_text' is the correct method to interact with the model
-    response = genai.generate_text(
-        prompt="You are an OCR expert specializing in extracting text from scanned images. Read the image carefully and return only the extracted text without any additional information.",
-        images=[img],
-        stream=True
+    # Call the correct method for image processing
+    response = model.generate_content(
+        [img, "Extract the text from this image and return only the extracted text."]
     )
-    
-    response.resolve()
 
-    lis = to_markdown(response.text)
+    # Extract the text and print
+    extracted_text = response.text
+    lis = to_markdown(extracted_text)
     print(lis)
 
 
+# Define the image path
 path = "/home/buzzadmin/Documents/Desktop/Click_On_This/upload/Project-B/Python/Python_OCR/sample_pan.png"
 text_extract(path)

@@ -23,9 +23,9 @@ def whatsapp_groupmaker(excel_file):
     driver = webdriver.Chrome()  
     driver.get("https://web.whatsapp.com")  
     driver.maximize_window()
-
+    time.sleep(30)
     # Wait for QR code scan
-    WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, "//canvas")))
+    # WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.XPATH, "//canvas")))
 
     try:
         # Click on the menu and create a new group
@@ -55,7 +55,7 @@ def whatsapp_groupmaker(excel_file):
                 time.sleep(1)
             except Exception:
                 print(f"Number {number} not found or not on WhatsApp.")
-
+        time.sleep(700)
         # Click Next (Arrow)
         next_button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//span[@data-icon='arrow-forward']")))
         next_button.click()
@@ -63,6 +63,7 @@ def whatsapp_groupmaker(excel_file):
         # Enter Group Name
         group_name_field = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "(//p[contains(@class, 'selectable-text')])[2]")))
         group_name_field.send_keys("Beerpur")
+        # time.sleep(700)
 
         # # Click Create (Checkmark)
         # create_button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//span[@data-icon='checkmark-medium']")))
@@ -78,5 +79,6 @@ def whatsapp_groupmaker(excel_file):
         driver.quit()  
 
 # Run the bot with an Excel file input
-file_path = "/home/buzzadmin/Documents/Desktop/Click_On_This/upload/Project-B/Python/Output_Excels/Beerpur.xlsx"
+# file_path = "/home/buzzadmin/Documents/Desktop/Click_On_This/upload/Project-B/Python/Output_Excels/Beerpur.xlsx"
+file_path = "/home/buzzadmin/Documents/sample.xlsx"
 whatsapp_groupmaker(file_path)

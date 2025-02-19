@@ -79,7 +79,7 @@ def main():
         print("OCR extraction completed! Text saved to 'extracted_text.txt'.")
         
         pan_numbers = extract_pan(text)
-        if pan_numbers:
+        if pan_numbers: 
             print("Extracted PAN Numbers:", pan_numbers)
         else:
             print("No PAN numbers found.")
