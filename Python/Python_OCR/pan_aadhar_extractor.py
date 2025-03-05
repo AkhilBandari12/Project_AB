@@ -46,8 +46,19 @@ def ExtractDetails(image_path):
     print('=================================')
 
 # Run the function
-ExtractDetails('Python/Python_OCR/Aadhar.png')
+# path = "/home/buzzadmin/Documents/Desktop/Click_On_This/upload/Project-B/Python/Python_OCR/sample_pan_data.png"        #Done
+# path = "/home/buzzadmin/Documents/Desktop/Click_On_This/upload/Project-B/Python/Python_OCR/sample_pan.png"               #Blurry Image! No DATE OF BIRTH detected!
+path = "/home/buzzadmin/Documents/Desktop/PAN/142599-200636-PanCard-202502210200041740126604.jpg"  # Blurry Image! No DATE OF BIRTH detected!
+# path = "/home/buzzadmin/Documents/Desktop/PAN/179684-199466-PanCard-202502120221131739350273.jpg"  # Done
+# path = "/home/buzzadmin/Documents/Desktop/PAN/179765-199554-PanCard-202502130956281739420788.jpg"  #Blurry Image! No PAN Number No DATE OF BIRTH detected!
+# path = "/home/buzzadmin/Documents/Desktop/PAN/180068-199887-PanCard-202502150318161739612896.jpg"  #Blurry Image! No PAN Number detected!
+# path = "/home/buzzadmin/Documents/Desktop/PAN/180931-200833-PanCard-202502241133461740377026.jpg"  #Blurry Image! No PAN Number No DATE OF BIRTH detected!
+# path = "/home/buzzadmin/Documents/Desktop/PAN/181760-201722-PanCard-202503010248451740820725.jpg"  #Blurry Image! No PAN Number No DATE OF BIRTH detected!
+# path = "/home/buzzadmin/Documents/Desktop/PAN/181866-201841-PanCard-202503031202451740983565.jpg"    ##Blurry Image! No PAN Number No DATE OF BIRTH detected!
 
+
+
+ExtractDetails(path)
 
 
 
