@@ -32,5 +32,5 @@ def text_extract(img_path):
 
 
 # Define the image path
-path = "/home/buzzadmin/Documents/Desktop/Click_On_This/upload/Project-B/Python/Python_OCR/sample_pan.png"
+path = "/home/buzzadmin/Documents/Desktop/PAN/179765-199554-PanCard-202502130956281739420788.jpg"
 text_extract(path)

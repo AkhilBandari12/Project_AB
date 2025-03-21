@@ -17,7 +17,6 @@ Output: True
 s1 = "AXY" 
 s2 = "ADXCP"
 
-
 for i in s1:
     print(i)
     print(s2.count(i))

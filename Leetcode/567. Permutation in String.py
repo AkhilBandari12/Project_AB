@@ -30,13 +30,13 @@ s1 ="dinitrophenylhydrazine"
 s2 ="acetylphenylhydrazine"
 
 
-perm_list = ["".join(p) for p in permutations(s1)]
+# perm_list = ["".join(p) for p in permutations(s1)]
 
-for i in perm_list:
-    if s2.__contains__(i):
-        print(True)
+# for i in perm_list:
+#     if s2.__contains__(i):
+#         print(True)
 
-print(False)
+# print(False)
 
 
 

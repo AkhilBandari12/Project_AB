@@ -6,7 +6,7 @@ import numpy as np
 from pdf2image import convert_from_path
 from PIL import Image
 import re
-import easyocr
+# import easyocr
 
 def preprocess_image(img):
     gray = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2GRAY)
