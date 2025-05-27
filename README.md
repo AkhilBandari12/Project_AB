@@ -1,48 +1,60 @@
-# Training and Upskilling Repository
+# Template: Python - Minimal
 
-## Overview
+This template leverages the new [Python framework](https://github.com/robocorp/robocorp), the [libraries](https://github.com/robocorp/robocorp/blob/master/docs/README.md#python-libraries) from to same project as well.
 
-Welcome to my Training and Upskilling Repository! This repository is a collection of projects, scripts, and experiments that I have created as part of my journey to improve my skills in various technologies and frameworks. 
-The primary goal of this repository is to document my learning process, practice new concepts, and experiment with different tools.
+The template provides you with the basic structure of a Python project: logging out of the box and controlling your tasks without fiddling with the base Python stuff. The environment contains the most used libraries, so you do not have to start thinking about those right away. 
 
-## Purpose
+👉 Other templates are available as well via our tooling and on our [Portal](https://robocorp.com/portal/tag/template)
 
-The purpose of this repository is to:
+## Running
 
-- **Learn and practice**: Enhance my understanding of various programming languages, libraries, and frameworks.
-- **Experiment and explore**: Try out new ideas, tools, and techniques.
-- **Document progress**: Keep track of my progress and the knowledge I have gained over time.
-- **Share knowledge**: Make my work available to others who may find it helpful.
+#### VS Code
+1. Get [Robocorp Code](https://robocorp.com/docs/developer-tools/visual-studio-code/extension-features) -extension for VS Code.
+1. You'll get an easy-to-use side panel and powerful command-palette commands for running, debugging, code completion, docs, etc.
 
-## Contents
+#### Command line
 
-This repository includes:
+1. [Get RCC](https://github.com/robocorp/rcc?tab=readme-ov-file#getting-started)
+1. Use the command: `rcc run`
 
-- **Code snippets and scripts**: Small programs or scripts that I wrote to learn specific concepts or solve particular problems.
-- **Project exercises**: Larger projects or exercises that demonstrate more comprehensive knowledge of certain technologies.
-- **Notes and documentation**: Written materials that explain concepts, document my learning process, or provide instructions on how to use certain tools.
+## Results
 
-## Technologies and Tools
+🚀 After running the bot, check out the `log.html` under the `output` -folder.
 
-Throughout this repository, you will find work related to various technologies, including but not limited to:
+## Dependencies
 
-- **Programming Languages**: Python
-- **Frameworks and Libraries**: Robot Framework, Selenium, N number of Python Libs
-- **Databases**: SQL, Postgres ...etc.
-- **Other Tools**: AWS, Jenkins ,Docker, Version control with Git, automation scripts, etc.
+We strongly recommend getting familiar with adding your dependencies in [conda.yaml](conda.yaml) to control your Python dependencies and the whole Python environment for your automation.
 
-## Disclaimer
+<details>
+  <summary>🙋‍♂️ "Why not just pip install...?"</summary>
 
-This repository is primarily for my personal learning and growth. While I strive to follow best practices and produce quality work, please note that some code and projects may be experimental or incomplete. Feel free to use or adapt any of the code, but be mindful that it may not be production-ready.
+Think of [conda.yaml](conda.yaml) as an equivalent of the requirements.txt, but much better. 👩‍💻 With `conda.yaml`, you are not just controlling your PyPI dependencies; you control the complete Python environment, which makes things repeatable and easy.
 
-## Contributions
+👉 You will probably need to run your code on another machine quite soon, so by using `conda.yaml`:
+- You can avoid `Works on my machine` -cases
+- You do not need to manage Python installations on all the machines
+- You can control exactly which version of Python your automation will run on 
+  - You'll also control the pip version to avoid dep. resolution changes
+- No need for venv, pyenv, ... tooling and knowledge sharing inside your team.
+- Define dependencies in conda.yaml, let our tooling do the heavy lifting.
+- You get all the content of [conda-forge](https://prefix.dev/channels/conda-forge) without any extra tooling
 
-Since this repository is focused on my personal training, contributions are not necessary. However, if you have suggestions, feedback, or would like to discuss anything related to the content here, feel free to reach out!
+> Dive deeper with [these](https://github.com/robocorp/rcc/blob/master/docs/recipes.md#what-is-in-condayaml) resources.
 
-## License
+</details>
+<br/>
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+> The full power of [rpaframework](https://robocorp.com/docs/python/rpa-framework) -libraries is also available on Python as a backup while we implement the new Python libraries.
 
----
+## What now?
 
-Thank you for visiting my training and upskilling repository! I hope you find the content here insightful and helpful in your own learning journey.
+🚀 Now, go get'em
+
+Start writing Python and remember that the AI/LLM's out there are getting really good and creating Python code specifically.
+
+👉 Try out [Robocorp ReMark 💬](https://chat.robocorp.com)
+
+For more information, do not forget to check out the following:
+- [Robocorp Documentation -site](https://robocorp.com/docs)
+- [Portal for more examples](https://robocorp.com/portal)
+- Follow our main [robocorp -repository](https://github.com/robocorp/robocorp) as it is the main location where we developed the libraries and the framework.

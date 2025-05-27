@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.12.3 on linux)" generated="2025-04-22T15:13:05.122340" rpa="false" schemaversion="5">
+<suite id="s1" name="Epfo" source="/home/buzzadmin/Downloads/Backup/Documents/Desktop/Click_On_This/upload/Project-B/Python/Python_Robocorp/epfo.robot">
+<test id="s1-t1" name="Launch EPFO website" line="331">
+<kw name="Open EPF India Website">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-22T15:13:05.266704" level="INFO">Opening browser 'firefox' to base url 'https://unifiedportal-emp.epfindia.gov.in/epfo/'.</msg>
+<msg time="2025-04-22T15:13:06.074750" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-04-22T15:13:06.075086" level="FAIL">InvalidArgumentException: Message: binary is not a Firefox executable
+</msg>
+<arg>https://unifiedportal-emp.epfindia.gov.in/epfo/</arg>
+<arg>firefox</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="FAIL" start="2025-04-22T15:13:05.266574" elapsed="0.811313">InvalidArgumentException: Message: binary is not a Firefox executable
+</status>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:06.078245" elapsed="0.000058"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//button[@id="btnCloseModal"]</arg>
+<arg>timeout=30s</arg>
+<arg>error= Unable to find Alert Popup..</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:06.078468" elapsed="0.000040"/>
+</kw>
+<status status="FAIL" start="2025-04-22T15:13:05.266070" elapsed="0.812638">InvalidArgumentException: Message: binary is not a Firefox executable
+</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:06.078957" elapsed="0.000045"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${payment}</var>
+<arg>False</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:06.079200" elapsed="0.000041"/>
+</kw>
+<while condition="'${payment}' == 'False'">
+<iter>
+<kw name="Login Process">
+<var>${payment}</var>
+<status status="NOT RUN" start="2025-04-22T15:13:06.080089" elapsed="0.000089"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:06.080347" elapsed="0.000037"/>
+</kw>
+<status status="NOT RUN" start="2025-04-22T15:13:06.079363" elapsed="0.001072"/>
+</iter>
+<status status="NOT RUN" start="2025-04-22T15:13:06.079360" elapsed="0.001127"/>
+</while>
+<status status="FAIL" start="2025-04-22T15:13:05.265725" elapsed="0.815012">InvalidArgumentException: Message: binary is not a Firefox executable
+</status>
+</test>
+<test id="s1-t2" name="Login EPFO Application" line="354">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-22T15:13:06.081662" level="INFO">${payment} = False</msg>
+<var>${payment}</var>
+<arg>False</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-22T15:13:06.081419" elapsed="0.000287"/>
+</kw>
+<while condition="'${payment}' == 'False'">
+<iter>
+<kw name="Login Process">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-22T15:13:08.083060" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-22T15:13:06.082637" elapsed="2.000760"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-22T15:13:08.084842" level="INFO">Clicking button 'xpath://*[@id="btnCloseModal"]'.</msg>
+<msg time="2025-04-22T15:13:08.085287" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-04-22T15:13:08.085528" level="FAIL">No browser is open.</msg>
+<arg>xpath://*[@id="btnCloseModal"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="FAIL" start="2025-04-22T15:13:08.083874" elapsed="0.003635">No browser is open.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Opened EPFO login page</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.087868" elapsed="0.000073"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=username1</arg>
+<arg>timeout=90s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.088160" elapsed="0.000050"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>xpath://*[@id="username1"]</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.088383" elapsed="0.000044"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.088586" elapsed="0.000040"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${username}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.088785" elapsed="0.000043"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=password</arg>
+<arg>timeout=90s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.088980" elapsed="0.000046"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>xpath://*[@id="password"]</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.089182" elapsed="0.000037"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.089351" elapsed="0.000037"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${password}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.089525" elapsed="0.000036"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//div[@id='toggleCaptcha']//div[contains(@class, 'mb-3')]//img</arg>
+<arg>timeout=90s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.089695" elapsed="0.000036"/>
+</kw>
+<kw name="Capture Element Screenshot" owner="SeleniumLibrary">
+<arg>xpath=//div[@id='toggleCaptcha']//div[contains(@class, 'mb-3')]//img</arg>
+<arg>${SCREENSHOT_FILE}</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.089865" elapsed="0.000036"/>
+</kw>
+<kw name="Run Keyword" owner="BuiltIn">
+<var>${result}</var>
+<arg>captcha_text.captcha_ectract</arg>
+<arg>${SCREENSHOT_FILE}</arg>
+<doc>Executes the given keyword with the given arguments.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.090066" elapsed="0.000039"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.090242" elapsed="0.000031"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="captcha"]</arg>
+<arg>${result}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.090397" elapsed="0.000032"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//button[@value="Submit"]</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.090559" elapsed="0.000034"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>//button[@value="Submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.090714" elapsed="0.000033"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${payment}</var>
+<arg>Element should be Visible</arg>
+<arg>//*[contains(@class, 'dropdown-toggle') and contains(text(), 'Payment')]</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.090984" elapsed="0.000041"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${payment}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.091192" elapsed="0.000036"/>
+</kw>
+<return>
+<value>${payment}</value>
+<status status="NOT RUN" start="2025-04-22T15:13:08.091299" elapsed="0.000057"/>
+</return>
+<var>${payment}</var>
+<status status="FAIL" start="2025-04-22T15:13:06.082311" elapsed="2.009226">No browser is open.</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.091708" elapsed="0.000043"/>
+</kw>
+<status status="FAIL" start="2025-04-22T15:13:06.081827" elapsed="2.009999">No browser is open.</status>
+</iter>
+<status status="FAIL" start="2025-04-22T15:13:06.081824" elapsed="2.010092">No browser is open.</status>
+</while>
+<status status="FAIL" start="2025-04-22T15:13:06.081028" elapsed="2.011186">No browser is open.</status>
+</test>
+<test id="s1-t3" name="Navigate to ECR upload page" line="369">
+<try>
+<branch type="TRY">
+<kw name="Click Payments Menu">
+<kw name="Click Element When Visible">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-04-22T15:13:08.094373" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-04-22T15:13:08.094488" level="FAIL">No browser is open.</msg>
+<arg>${PreLocator}</arg>
+<arg>timeout=120</arg>
+<arg>error=${Elementtype} not visible within 2m</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-04-22T15:13:08.093927" elapsed="0.001671">No browser is open.</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${PreLocator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.095793" elapsed="0.000042"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PostLocator}</arg>
+<arg>timeout=30</arg>
+<arg>error= unable to navigate to next page</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.095950" elapsed="0.000030"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Successfully Clicked on ${Elementtype}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.096087" elapsed="0.000029"/>
+</kw>
+<arg>//*[contains(@class, 'dropdown-toggle') and contains(text(), 'Payment')]</arg>
+<arg>Payment Menu</arg>
+<arg>//ul[@class='dropdown-menu m1']//a[text()='ECR/RETURN FILING']</arg>
+<status status="FAIL" start="2025-04-22T15:13:08.093580" elapsed="0.002650">No browser is open.</status>
+</kw>
+<status status="FAIL" start="2025-04-22T15:13:08.093229" elapsed="0.003096">No browser is open.</status>
+</kw>
+<kw name="Click ECR/RETURN FILE Menu Item">
+<status status="NOT RUN" start="2025-04-22T15:13:08.096495" elapsed="0.000034"/>
+</kw>
+<kw name="Click ECR Upload Hyperlink">
+<status status="NOT RUN" start="2025-04-22T15:13:08.096653" elapsed="0.000029"/>
+</kw>
+<status status="FAIL" start="2025-04-22T15:13:08.092973" elapsed="0.003759">No browser is open.</status>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-22T15:13:08.097048" level="INFO">Failed to Navigate to ECR upload Page</msg>
+<arg>Failed to Navigate to ECR upload Page</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-22T15:13:08.096924" elapsed="0.000180"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-22T15:13:08.097422" level="INFO">${task_error} = Navigating to ECR upload page</msg>
+<var>${task_error}</var>
+<arg>Navigating to ECR upload page</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-22T15:13:08.097239" elapsed="0.000229"/>
+</kw>
+<status status="PASS" start="2025-04-22T15:13:08.096813" elapsed="0.000730"/>
+</branch>
+<branch type="FINALLY">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-22T15:13:08.097925" level="INFO">ECR PAge Loaded</msg>
+<arg>ECR PAge Loaded</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-22T15:13:08.097805" elapsed="0.000174"/>
+</kw>
+<status status="PASS" start="2025-04-22T15:13:08.097662" elapsed="0.000364"/>
+</branch>
+<status status="PASS" start="2025-04-22T15:13:08.092905" elapsed="0.005165"/>
+</try>
+<status status="PASS" start="2025-04-22T15:13:08.092553" elapsed="0.005671"/>
+</test>
+<test id="s1-t4" name="ECR Fileupload" line="381">
+<try>
+<branch type="TRY">
+<kw name="Click ECR file upload Button">
+<kw name="Click Element When Visible">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-04-22T15:13:08.099787" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-04-22T15:13:08.099871" level="FAIL">No browser is open.</msg>
+<arg>${PreLocator}</arg>
+<arg>timeout=120</arg>
+<arg>error=${Elementtype} not visible within 2m</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-04-22T15:13:08.099490" elapsed="0.000938">No browser is open.</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${PreLocator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.100566" elapsed="0.000027"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PostLocator}</arg>
+<arg>timeout=30</arg>
+<arg>error= unable to navigate to next page</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.100673" elapsed="0.000020"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Successfully Clicked on ${Elementtype}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.100769" elapsed="0.000020"/>
+</kw>
+<arg>//*[@id="ui-id-3"]</arg>
+<arg>ECR file upload Button</arg>
+<arg>//*[@id="salaryDate"]</arg>
+<status status="FAIL" start="2025-04-22T15:13:08.099223" elapsed="0.001645">No browser is open.</status>
+</kw>
+<status status="FAIL" start="2025-04-22T15:13:08.098927" elapsed="0.002013">No browser is open.</status>
+</kw>
+<kw name="Click WageMonth Button">
+<status status="NOT RUN" start="2025-04-22T15:13:08.101093" elapsed="0.000024"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:08.101202" elapsed="0.000023"/>
+</kw>
+<status status="FAIL" start="2025-04-22T15:13:08.098785" elapsed="0.002479">No browser is open.</status>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-22T15:13:08.101467" level="INFO">Failed while uploading the file</msg>
+<arg>Failed while uploading the file</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-22T15:13:08.101385" elapsed="0.000118"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-22T15:13:08.101670" level="INFO">${task_error} = uploading the file to ECR upload page</msg>
+<var>${task_error}</var>
+<arg>uploading the file to ECR upload page</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-22T15:13:08.101575" elapsed="0.000113"/>
+</kw>
+<status status="PASS" start="2025-04-22T15:13:08.101314" elapsed="0.000402"/>
+</branch>
+<branch type="FINALLY">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-22T15:13:08.101886" level="INFO">Uploaded</msg>
+<arg>Uploaded</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-22T15:13:08.101823" elapsed="0.000092"/>
+</kw>
+<status status="PASS" start="2025-04-22T15:13:08.101760" elapsed="0.000224"/>
+</branch>
+<status status="PASS" start="2025-04-22T15:13:08.098747" elapsed="0.003264"/>
+</try>
+<status status="PASS" start="2025-04-22T15:13:08.098472" elapsed="0.003636"/>
+</test>
+<test id="s1-t5" name="ECR File Verification" line="394">
+<try>
+<branch type="TRY">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-22T15:13:11.103023" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-22T15:13:08.102537" elapsed="3.000819"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-04-22T15:13:11.104620" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-04-22T15:13:11.104805" level="FAIL">No browser is open.</msg>
+<arg>//*[@id="tbClaimList"]/tbody/tr/td[12]/a[contains(text(), 'Verify')]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-04-22T15:13:11.104213" elapsed="0.001504">No browser is open.</status>
+</kw>
+<msg time="2025-04-22T15:13:11.105945" level="INFO">${visible} = False</msg>
+<var>${visible}</var>
+<arg>Element should be Visible</arg>
+<arg>//*[@id="tbClaimList"]/tbody/tr/td[12]/a[contains(text(), 'Verify')]</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-04-22T15:13:11.103772" elapsed="0.002219"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-22T15:13:11.106473" level="INFO">False</msg>
+<arg>${visible}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-22T15:13:11.106221" elapsed="0.000335"/>
+</kw>
+<while condition="${visible} == False">
+<iter>
+<kw name="Click Other Elements">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-04-22T15:13:14.108452" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-04-22T15:13:11.107903" elapsed="3.000807"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-04-22T15:13:14.109742" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-04-22T15:13:14.109919" level="FAIL">No browser is open.</msg>
+<arg>//li//a[text()='ECR Home Page']</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-04-22T15:13:14.109115" elapsed="0.001870">No browser is open.</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>//li//a[text()='ECR Home Page']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:14.111278" elapsed="0.000056"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//a[text()='ECR Upload']</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:14.111496" elapsed="0.000041"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>//a[text()='ECR Upload']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:14.111684" elapsed="0.000037"/>
+</kw>
+<status status="FAIL" start="2025-04-22T15:13:11.107185" elapsed="3.004706">No browser is open.</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>20s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:14.112076" elapsed="0.000056"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${visible}</var>
+<arg>Element Should Be Visible</arg>
+<arg>//*[@id="tbClaimList"]/tbody/tr/td[12]/a[contains(text(), 'Verify')]</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:14.112294" elapsed="0.000042"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${visible}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:14.112476" elapsed="0.000035"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>25s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:14.112627" elapsed="0.000033"/>
+</kw>
+<status status="FAIL" start="2025-04-22T15:13:11.106665" elapsed="3.006072">No browser is open.</status>
+</iter>
+<status status="FAIL" start="2025-04-22T15:13:11.106661" elapsed="3.006175">No browser is open.</status>
+</while>
+<kw name="Sleep" owner="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:14.112993" elapsed="0.000039"/>
+</kw>
+<kw name="Download ECR File and ECR Statement">
+<status status="NOT RUN" start="2025-04-22T15:13:14.113253" elapsed="0.000044"/>
+</kw>
+<kw name="Switch To Original Window">
+<status status="NOT RUN" start="2025-04-22T15:13:14.113442" elapsed="0.000033"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>//*[@id="tbClaimList"]/tbody/tr/td[12]/a[contains(text(), 'Verify')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:14.113594" elapsed="0.000033"/>
+</kw>
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<doc>Handles the current alert and returns its message.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:14.113746" elapsed="0.000034"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-04-22T15:13:14.113885" elapsed="0.000032"/>
+</kw>
+<kw name="Generate TRRN Number and Click Prepare Challan Button">
+<status status="NOT RUN" start="2025-04-22T15:13:14.114175" elapsed="0.000033"/>
+</kw>
+<kw name="Switch To Original Window">
+<status status="NOT RUN" start="2025-04-22T15:13:14.114332" elapsed="0.000030"/>
+</kw>
+<status status="FAIL" start="2025-04-22T15:13:08.102452" elapsed="6.011972">No browser is open.</status>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-22T15:13:14.114794" level="INFO">Failed while verifying uploaded the file</msg>
+<arg>Failed while verifying uploaded the file</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-22T15:13:14.114637" elapsed="0.000225"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-04-22T15:13:14.115189" level="INFO">${task_error} = verifying the uploaded file</msg>
+<var>${task_error}</var>
+<arg>verifying the uploaded file</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-04-22T15:13:14.115005" elapsed="0.000220"/>
+</kw>
+<status status="PASS" start="2025-04-22T15:13:14.114514" elapsed="0.000769"/>
+</branch>
+<branch type="FINALLY">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-22T15:13:14.115609" level="INFO">Verified</msg>
+<arg>Verified</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-22T15:13:14.115495" elapsed="0.000167"/>
+</kw>
+<status status="PASS" start="2025-04-22T15:13:14.115362" elapsed="0.000348"/>
+</branch>
+<status status="PASS" start="2025-04-22T15:13:08.102429" elapsed="6.013327"/>
+</try>
+<status status="PASS" start="2025-04-22T15:13:08.102264" elapsed="6.013665"/>
+</test>
+<status status="FAIL" start="2025-04-22T15:13:05.122844" elapsed="8.993624"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Epfo" id="s1" pass="3" fail="2" skip="0">Epfo</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-04-22T15:13:05.120524" level="WARN">Error in file '/home/buzzadmin/Downloads/Backup/Documents/Desktop/Click_On_This/upload/Project-B/Python/Python_Robocorp/epfo.robot' on line 106: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2025-04-22T15:13:05.193391" level="ERROR">Error in file '/home/buzzadmin/Downloads/Backup/Documents/Desktop/Click_On_This/upload/Project-B/Python/Python_Robocorp/epfo.robot' on line 8: Library 'excel.py' does not exist.</msg>
+<msg time="2025-04-22T15:13:05.265364" level="ERROR">Error in file '/home/buzzadmin/Downloads/Backup/Documents/Desktop/Click_On_This/upload/Project-B/Python/Python_Robocorp/epfo.robot' on line 11: Library 'captcha_text.py' does not exist.</msg>
+</errors>
+</robot>

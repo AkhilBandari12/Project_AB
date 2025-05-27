@@ -16,9 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Welcome to the OCR Project!")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('pan_extractor.urls')),  # Include the OCR API URLs
-    path('api/', include('aadhar_extractor.urls')),  
+    path('', include('pan_extractor.urls')),  
+    path('', include('aadhar_extractor.urls')),  
+    path('', home, name='home'),  # Default route for empty path
 ]

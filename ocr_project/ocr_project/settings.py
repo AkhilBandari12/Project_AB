@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'pan_extractor',
     'aadhar_extractor',
+    'epfo_api',
 ]
 
 MIDDLEWARE = [

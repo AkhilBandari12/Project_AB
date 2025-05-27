@@ -42,10 +42,10 @@ class AadhaarOCRAPIView(APIView):
     
     def post(self, request, *args, **kwargs):
         """Handle Aadhaar image upload and extract details"""
-        if not request.FILES.get('image'):
+        if not request.FILES.get('file'):
             return Response({"status": "error", "message": "No image uploaded"}, status=400)
         
-        image_file = request.FILES['image']
+        image_file = request.FILES['file']
         file_path = default_storage.save('aadhaar_images/' + image_file.name, ContentFile(image_file.read()))
         full_path = os.path.join(default_storage.location, file_path)
         
